@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Dane</h1>
+  <p>Podaj wiek (Starszy 1, młody 2), wzrost (wysoki 3, niski 4)<br> i włosy (jasne 5, ciemne 6
+    brak 7) swojego partnera:</p>
+    <form method="post" enctype="miltipart/form-data"">
+      {% csrf_token %}
+      <input type="number" name="dane" size="40">
+      <input type="sumbit" value="Send">
+    </form>
+
+
+    {% if result_present %}
+        {{ skrypt | safe}}
+    {% endif %}
+{% endblock %}        
